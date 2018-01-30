@@ -6,11 +6,13 @@ import router from './router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import Panel from '@/components/globals/Panel'
+import BtnNavigate from '@/components/globals/BtnNavigate'
 
 Vue.config.productionTip = false
 
 Vue.use(Vuetify)
 Vue.component('panel', Panel);
+Vue.component('btn-navigate', BtnNavigate);
 
 /* eslint-disable no-new */
 new Vue({
