@@ -1,0 +1,28 @@
+doctype html
+include header.pug
+
+head
+	meta(charset="utf-8")
+	meta(name="viewport" content="width=device-width, initial-scale=1")
+	title -=MneVo=-
+	script(src="https://cdnjs.cloudflare.com/ajax/libs/three.js/89/three.js")
+	script(src="http://cdn.rawgit.com/mrdoob/three.js/master/examples/js/Detector.js")
+	script(src="http://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js")
+	script(src="http://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/OBJLoader.js")
+	script(src="http://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/MTLLoader.js")
+	script(src="/3d/main-script")
+	link(href="/get-login-css" rel="stylesheet")
+body
+	div(class="uploader center")
+		form(action="/upload-model" method="POST" enctype="multipart/form-data")
+			div(class="center")
+				label(for="file") Choose file to upload
+				br
+				input(type="file" id="file" name="file" multiple)
+			div
+				button SEND
+	div(class="center")
+		h1 WELCOME
+		br
+		a(href="/logout")
+			h1 LOGOUT

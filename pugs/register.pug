@@ -1,0 +1,22 @@
+doctype html
+include header.pug
+	title= "New One Here?"
+	link(href="/get-login-css" rel="stylesheet")
+body
+	div(class="login-form")
+		h1 REGISTER
+		div(id="notification-area")
+			p #{notification}
+		form(action="/registration" method="POST")
+			p #{login}
+			input(type="text" name="login" placeholder="LOGIN")
+			br
+			p #{mail}
+			input(type="text" name="mail" placeholder="MAIL")
+			br
+			p #{password}
+			input(type="password" name="password" placeholder="PASSWORD")
+			br
+			input(type="submit" value="REGISTER")
+			br
+			a(href="/login") LOGIN
