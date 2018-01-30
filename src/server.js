@@ -1,33 +1,22 @@
-const ENVIRONMENT = require("./config/Env.js");
-var express = require("express");
-var app = express();
-
-var bp = require("body-parser");
-var fs = require("fs");
-var cors = require("cors");
-var path = require("path");
-var AppError = require('./lib/AppError.js')
+/* eslint-disable no-console */
+const ENV = require('./config/Env.js');
+//
+const express = require('express');
+const app = express();
+//
+const bp = require('body-parser');
+const cors = require('cors');
+const path = require('path');
 
 app.use(express.static(path.join(__dirname, '../../client/dist')));
-app.use(bp.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(cors());
 
-app.use(cors())
+require('./routes.js')(app);
 
-app.route("/user")
-	.get((req, res) => {
-		console.log("login: ", Date.now());
-		// res.end(pug.renderFile(__dirname+"/pugs/login.pug" , {notification: req.query.notification}));
-		res.end();
-	})
-	.post(express.json(),(req, res) => {
-		//validate input
-		console.log(req.headers);
-		res.writeHead(200, `{"Set-Cookie" : two = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"; Path='/'`);
-		res.end();
-	});
 
-app.listen(ENVIRONMENT.port, (err, port) => {
+app.listen(ENV.port, (err, port) => {
 	if (!err) {
-		console.log("WE ROLLING! on: ", ENVIRONMENT.domain);
+		console.log('WE ROLLING! on: ', ENV.domain , ' port:' , ENV.port)
 	}
 });
