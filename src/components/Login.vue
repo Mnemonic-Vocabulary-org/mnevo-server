@@ -64,7 +64,7 @@ import RegLog from '@/services/api/RegLog'
         try {
           console.log("sending request");
           const test = await RegLog.send({
-              email: this.email,
+              login: this.loginOrMail,
               password: this.password
             });
           this.$router.push({
